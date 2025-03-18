@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>संकल्प</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <style>
+        .content {
+            text-align: center;
+            padding: 20px;
+            word-spacing: 10px;
+            color: #333;
+            background-color: rgb(255, 198, 198);
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(65, 41, 41, 0.1);
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff4d4d;
+            margin-bottom: 20px;
+        }
+
+        p, select {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        select {
+            padding: 4px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+
+        .translate-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .translate-btn:hover {
+            background-color: #45a049;
+        }
+
+        #mantra, #naam, #after{
+            font-size:0.6cm;
+            word-spacing:4;
+            line-height:1.5cm;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>संकल्प</h1>
+        <p id="mantra">
+            ॐ विष्णु विष्णु विष्णुः। श्रीमद्भगवतो महापुरुषस्य विष्णोराज्ञया प्रवर्तमानस्य सकल जगत सिष्ठि कारिणाे ब्रह्मणो द्वितीये परार्धे श्रीश्वेत वाराहकल्पे वैवस्वत मन्वन्तरे अष्टाविंशतितमे युगे सत्य त्रेता द्वापरन्रते कलियुगे कलियुगस्य प्रथमचरणे भूर्लोके भारतवर्षे जम्बूद्विपे भरतखण्डे आर्यावर्तान्तर्गत ब्रह्मावर्तस्य नेपाल देशे राष्ट्रीय राजधानी क्षेत्र मण्डलान्तरगते काठमाडौं नाम्नि नगरे 
+            <span id="direction">उत्तर</span> 
+            दिग्भागे देवब्राह्मणानां सन्निधौ षष्ठि संवत्सराणं मध्ये 
+            <span id="samvatsar">विक्रमी</span> 
+            नाम्नी संवत्सरे 
+            <span id="ayana">उत्तरायण</span> 
+            अयने, 
+            <span id="ritu">वसन्त</span> 
+            ऋतौ, 
+            <span id="month">चैत्र</span> 
+            मासे, 
+            <span id="paksha">शुक्ल</span> 
+            पक्षे, 
+            <span id="tithi">प्रतिपदा</span> 
+            तिथौ 
+            <span id="day">सोम</span> 
+            वासरे, 
+            <span id="nakshatra">अश्विनी</span> 
+            नक्षत्रे, 
+            <span id="chandra">मेष</span> 
+            राशिस्थिते चन्द्रे, 
+            <span id="surya">मीन</span> 
+            राशिस्थिते श्रीसूर्ये, 
+            <span id="guru">धनु</span> 
+            राशिस्थिते देवगुरौ
+            शेषेशु ग्रहेषु यथायथा राशिस्थानस्थितेषु सत्सु एवं ग्रहगुणविशेषण विशिष्टायां शुभपुण्यतिथौ <label id="gotra"></label>
+ गोत्रोत्पन्नस्य <label id="naam"></label>
+ नामः शर्मणः <b>(वर्मणः, गुप्तस्य, सपरिवारस्य ममात्मनः)</b> सम्पूर्ण पूजा सफलम् ।
+        </p>
+        <button class="translate-btn" onclick="back()">Go Back</button>
+    </div>
+
+    <script>
+        function back() {
+            window.location.href = 'index.html';
+        }
+
+        function updateData() {            
+            var b = prompt("गाेत्र लेख्नुहाेस् । (देवनागरीमा)");
+            if(b == ""){
+                document.getElementById("gotra").innerText = ".....";
+            }else{
+                document.getElementById("gotra").innerText = b;
+            }
+
+            var a = prompt("न्वारनकाे नाम हाल्नुहाेस् । (देवनागरीमा)");
+            if(a == ""){
+                document.getElementById("naam").innerText = ".....";
+            }else{
+                document.getElementById("naam").innerText = a;
+            }
+
+            const today = new Date();
+            const days = ["रवि", "सोम", "मंगल", "बुध", "गुरु", "शुक्र", "शनि"];
+
+            const months = ["माघ","फाल्गुन","चैत्र","वैशाख","ज्येष्ठ","आषाढ़","श्रावण","भाद्रपद","आश्विन","कार्तिक","मार्गशीर्ष","पौष"]
+            
+            const ritus = ["वसन्त", "ग्रीष्म", "वर्षा", "शरद", "हेमन्त", "शिशिर"];
+            const tithis = ["प्रतिपदा", "द्वितीया", "तृतीया", "चतुर्थी", "पञ्चमी", "षष्ठी", "सप्तमी", "अष्टमी", "नवमी", "दशमी", "एकादशी", "द्वादशी", "त्रयोदशी", "चतुर्दशी", "पूर्णिमा", "अमावस्या"];
+
+            // Samvatsar (Vikram Samvat) calculation
+            document.getElementById('samvatsar').innerText = 2081 + (today.getFullYear() - 2025);
+
+            // Ayan (Uttarayan or Dakshinayan)
+            document.getElementById('ayana').innerText = (today.getMonth() >= 0 && today.getMonth() <= 5) ? 'उत्तरायण' : 'दक्षिणायन';
+
+            // Ritu (Season)
+            document.getElementById('ritu').innerText = ritus[Math.floor((today.getMonth() + 2) % 12 / 2)];
+
+            // Month (Hindu Month)
+            document.getElementById('month').innerText = months[today.getMonth()];
+
+            // Paksha (Shukla or Krishna)
+            document.getElementById('paksha').innerText = (today.getDate() <= 15) ?  'शुक्ल': 'कृष्ण';
+
+            // Tithi (Approximation)
+            document.getElementById('tithi').innerText = tithis[((today.getDate() - 1) % 15) + 1];
+
+            // Day
+            document.getElementById('day').innerText = days[today.getDay()];
+
+            // Placeholder for Chandra, Surya, and Guru signs (can use astrology library)
+            document.getElementById('chandra').innerText = 'मेष';
+            document.getElementById('surya').innerText = 'मीन';
+            document.getElementById('guru').innerText = 'धनु';
+        }
+
+        window.onload = updateData;
+    </script>
+</body>
+</html>
